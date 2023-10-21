@@ -8,7 +8,7 @@ dir <- paste("./",files_li,sep="")
 len <- length(files_li)
 # 第一个
 load(dir[1])
-new.data=merge.data
+new_data <-  merge.data
 # new.data <- arrange(data_first, '日期')
 # 再合并后面几个
 for (i in 2:len){
