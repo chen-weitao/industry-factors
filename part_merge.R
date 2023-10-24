@@ -20,11 +20,11 @@ code <- substr(files_li,1,6)
 # Industry[row,12]
 #定义不变量
 # lis <- c(0,10,20,30,40,100)
-# col <- c(3,20)
+# col <- c(20)
 lis <- c(0,1000,2000,3000,4000,len)
 col <- c(3,5,8,9,10,12,14,15,16,17,18,19,20)
 
-for (j in 1:2){
+for (j in 1:5){
   start <- lis[j]+1
   # print('----------------')
   # print(lis[j])
@@ -53,7 +53,7 @@ for (j in 1:2){
     new.data <- rename(new.data, c("tem" ="code"))
     merge.data <- rbind(merge.data,new.data)
   }
-  merge.data <- merge.data[,-ncol(merge.data)]
+  # merge.data <- merge.data[,-ncol(merge.data)]
   filename <- paste('E:/part_data/part_data',j,'.Rdata', sep = "", collapse = NULL)
   # 输出组合后的文件merge_all.csv到input文件
   # write.csv(merge.data,file = "E:/merge_all.csv",row.names=FALSE, fileEncoding = "GBK")

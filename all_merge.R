@@ -15,6 +15,11 @@ for (i in 2:len){
   load(dir[i])
   data_i=merge.data
   # data_sorted <- arrange(data_i, '日期')
-  new.data <- rbind(new.data,data_i)
+  new_data <- rbind(new_data,data_i)
 }
-save(new.data,file='E:/merge_all.Rdata') 
+save(new_data,file='E:/merge_all.Rdata') 
+# load("E:\\merge_all.Rdata")
+# a=new_data
+# load("E:\\merge_all1.Rdata")
+# new_data <- cbind(new_data,a)
+# save(new_data,file='E:/merge_all3.Rdata') 
