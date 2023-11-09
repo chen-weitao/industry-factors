@@ -41,6 +41,26 @@ new_s_c <- left_join(s_c,monthly_risk_free,by="type")
 new_s_c$excess_monthly_return <- new_s_c$monthly_return*100-new_s_c$x
 new_s_c$excess_monthly_return_next <- new_s_c$monthly_return_next*100-new_s_c$x
 new_s_c$excess_m_r <- c(new_s_c[1,9],new_s_c[2:nrow(new_s_c),10])
-excess_risk_free <- new_s_c[order(new_s_c$V1),c('V1','type','excess_m_r')]
+new_s_c$m_r <- c(new_s_c[1,6],new_s_c[2:nrow(new_s_c),7])
+excess_risk_free <- new_s_c[order(new_s_c$V1),c('V1','type','m_r','x','excess_m_r')]
+write.csv(x = excess_risk_free, file = "excess_m_r.csv")
+# 
+# #合并三因子
+# factor_m <- read_xlsx("C:/Users/User/Desktop/因子/三因子模型指标(月)202136394(仅供浙江工商大学使用)/STK_MKT_THRFACMONTH.xlsx")
+# factor_m <- factor_m[3:nrow(factor_m),]
+# row <- which(grepl('P9715', factor_m$MarkettypeID))
+# factor_P9715 <- factor_m[row,2]
+# factor_P9715 <- cbind(factor_P9715,factor_m[row,3])
+# factor_P9715 <- cbind(factor_P9715,factor_m[row,5])
+# factor_P9715 <- cbind(factor_P9715,factor_m[row,7])
+# for (i in (1:nrow(excess_risk_free))){
+#   row <- which(grepl(excess_risk_free[i,2], factor_P9715$TradingMonth))
+#   print(i)
+#   excess_risk_free[i,6] <- factor_P9715[row,2]
+#   excess_risk_free[i,7] <- factor_P9715[row,3]
+#   excess_risk_free[i,8] <- factor_P9715[row,4]
+# }
+# write.csv(x = excess_risk_free, file = "excess_risk_free.csv")
 
-# 算上月末收盘价和这月末收盘价，或者IPO发行价
+
+
